@@ -59,6 +59,65 @@
 incomplete_tasks = []
 completed_tasks = []
 
+def view_tasks():
+    if(len(incomplete_tasks) == 0):
+        print("No Incomplete Tasks!")
+    else:
+        for iteration, incomp_task in enumerate(incomplete_tasks):
+            print(f'{iteration+1}: {incomp_task.capitalize()} | Status: Incomplete')
+        print("\n-----------------------------------")
+                    
+    if(len(completed_tasks) == 0):
+        print("No Completed Tasks!")
+    else:
+        for iteration, comp_task in enumerate(completed_tasks):
+            print(f'{iteration+1}: {comp_task.capitalize()} | Status: Complete')
+
+def mark_task_complete():
+    if(len(incomplete_tasks) == 0):
+        print("There are no incomplete tasks")
+    else:
+        for item in incomplete_tasks:  
+            print(item.capitalize())
+        task_to_mark_completed = input("Enter task to mark as completed: ").lower()
+        for incompleted_task in incomplete_tasks:
+            if(incompleted_task == task_to_mark_completed):
+                completed_tasks.append(incompleted_task)
+                incomplete_tasks.remove(incompleted_task)
+
+def task_to_remove():
+    try:
+        print("""Task to be removed from: 
+        1. Completed
+        2. Incompleted""")
+        list_to_remove_tasks_from = int(input("Select List to remove task from: "))
+    except ValueError:
+        print("Must be a number!")
+    if(list_to_remove_tasks_from == 1):
+        if (len(completed_tasks) == 0):
+            print("Nothing to remove from Completed Task list!")
+        else:
+            for tasks in completed_tasks:
+                print(tasks.capitalize())
+            remove_task = input("Specify task to remove: ").lower()
+            if remove_task in completed_tasks:
+                completed_tasks.remove(remove_task)
+            else:
+                print("No task to remove that matches input")
+    elif(list_to_remove_tasks_from == 2): 
+        if (len(incomplete_tasks) == 0):
+            print("Nothing to remove from Incomplete Task list")
+        else:
+            for tasks in incomplete_tasks:
+                print(tasks.capitalize())
+            remove_task = input("Specify task to remove: ").lower()
+            if remove_task in incomplete_tasks:
+                incomplete_tasks.remove(remove_task)
+            else:
+                print("No task to remove that matches input")
+    else:
+        print("Invalid Selection! Try again")
+
 while(True):
     print("""
         Menu:
@@ -96,47 +155,4 @@ while(True):
                 completed_tasks.clear()
                 break
 
-    def view_tasks():
-        if(len(incomplete_tasks) == 0):
-            print("No Incomplete Tasks!")
-        else:
-            for iteration, incomp_task in enumerate(incomplete_tasks):
-                print(f'{iteration+1}: {incomp_task.capitalize()} | Status: Incomplete')
-            print("\n-----------------------------------")
-                    
-        if(len(completed_tasks) == 0):
-            print("No Completed Tasks!")
-        else:
-            for iteration, comp_task in enumerate(completed_tasks):
-                print(f'{iteration+1}: {comp_task.capitalize()} | Status: Complete')
-
-    def mark_task_complete():
-        if(len(incomplete_tasks) == 0):
-            print("There are no incomplete tasks")
-        else:
-            for item in incomplete_tasks:  
-                print(item.capitalize())
-            task_to_mark_completed = input("Enter task to mark as completed: ").lower()
-            for incompleted_task in incomplete_tasks:
-                if(incompleted_task == task_to_mark_completed):
-                    completed_tasks.append(incompleted_task)
-                    incomplete_tasks.remove(incompleted_task)
-
-    def task_to_remove():
-        list_to_remove_tasks_from = input("Completed or Incompleted task to remove: ").lower()
-        if(list_to_remove_tasks_from == "completed"):
-            for tasks in completed_tasks:
-                print(tasks.capitalize())
-            remove_task = input("Specify task to remove: ").lower()
-            if remove_task in completed_tasks:
-                completed_tasks.remove(remove_task)
-            else:
-                print("No task to remove that matches input")
-        else:
-            for tasks in incomplete_tasks:
-                print(tasks.capitalize())
-            remove_task = input("Specify task to remove: ").lower()
-            if remove_task in incomplete_tasks:
-                incomplete_tasks.remove(remove_task)
-            else:
-                print("No task to remove that matches input")
+    
