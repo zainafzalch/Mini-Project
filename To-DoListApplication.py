@@ -127,7 +127,7 @@ while(True):
             for tasks in completed_tasks:
                 print(tasks.capitalize())
             remove_task = input("Specify task to remove: ").lower()
-            completed_tasks.remove(tasks)
+            completed_tasks.remove(remove_task)
         else:
             for tasks in incomplete_tasks:
                 print(tasks.capitalize())
