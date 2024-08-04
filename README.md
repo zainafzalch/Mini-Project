@@ -8,6 +8,6 @@ Requirements to run:
 
 How to run:
 
-- Make sure python 3.10 or later is installed by running the command "python --version"
-- navigate to the program root directory (where To-DoListApplication.py is location)
+- Make sure python 3.10 or later is installed and added to path executable by running the command "python --version"
+- In any terminal emulator, navigate to the program root directory (where To-DoListApplication.py is location)
 - run command python To-DoListApplication.py
