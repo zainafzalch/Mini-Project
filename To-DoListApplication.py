@@ -78,7 +78,8 @@ while(True):
 
             case 1:
                 task_to_add = input("Task Description: ").lower()
-                incomplete_tasks.append(task_to_add)
+                if task_to_add not in incomplete_tasks:
+                    incomplete_tasks.append(task_to_add)
             
             case 2:
                 view_tasks() 
