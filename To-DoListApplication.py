@@ -91,6 +91,8 @@ while(True):
 
             case 5:
                 print("GOODBYE!")
+                incomplete_tasks.clear()
+                completed_tasks.clear()
                 break
 
     def view_tasks():
