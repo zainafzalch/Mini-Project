@@ -118,6 +118,7 @@ def task_to_remove():
                     print("No task to remove that matches input")
         else:
             print("Invalid Selection! Try again")
+            task_to_remove()
 
 while(True):
     print("""
