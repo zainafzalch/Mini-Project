@@ -127,9 +127,15 @@ while(True):
             for tasks in completed_tasks:
                 print(tasks.capitalize())
             remove_task = input("Specify task to remove: ").lower()
-            completed_tasks.remove(remove_task)
+            if remove_task in completed_tasks:
+                completed_tasks.remove(remove_task)
+            else:
+                print("No task to remove that matches input")
         else:
             for tasks in incomplete_tasks:
                 print(tasks.capitalize())
             remove_task = input("Specify task to remove: ").lower()
-            incomplete_tasks.remove(remove_task)
+            if remove_task in incomplete_tasks:
+                incomplete_tasks.remove(remove_task)
+            else:
+                print("No task to remove that matches input")
